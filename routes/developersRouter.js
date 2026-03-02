@@ -4,6 +4,8 @@ const {
   getDeveloper,
   editDeveloper,
   deleteDeveloper,
+  insertDeveloperForm,
+  insertDeveloper,
 } = require("../controllers/developersController");
 
 const developerRouter = Router();
@@ -15,5 +17,9 @@ developerRouter.get("/:id", getDeveloper);
 developerRouter.post("/:id", editDeveloper);
 
 developerRouter.delete("/:id", deleteDeveloper);
+
+developerRouter.get("/new", insertDeveloperForm);
+
+developerRouter.post("/new", insertDeveloper);
 
 module.exports = developerRouter;

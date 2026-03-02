@@ -16,4 +16,19 @@ async function deleteGame(req, res) {
   console.log("delete game");
 }
 
-module.exports = { getGamesAll, getGame, editGame, deleteGame };
+function insertGameForm(req, res) {
+  res.render("newGame");
+}
+
+async function insertGame(req, res) {
+  console.log("Insert game");
+}
+
+module.exports = {
+  getGamesAll,
+  getGame,
+  editGame,
+  deleteGame,
+  insertGameForm,
+  insertGame,
+};
