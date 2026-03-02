@@ -1,0 +1,20 @@
+<!-- games.ejs -->
+<html>
+  <head>
+    <title>Games</title>
+  </head>
+  <body>
+    <% games.forEach((game, index) => { %>
+        <h2 ><%= game.title %></h2>
+        <span><%= game.genre%></span>
+        <p> <%= game.developer %></p>
+        
+        <button><a href=<%="/" + game.id%>>Edit game</a></button>
+
+        <form action=<%="/" + message.id + %> method="POST" onsubmit="return confirm('Are you sure you want to delete this?');">
+            <input type="hidden" name="csrf_token" value="xyz123"> <!-- CSRF Protection -->
+            <button type="submit" style="color: red;">Delete Game</button>
+        </form>
+        <button><a href="/new">Add new message</a></button>
+  </body>
+</html>
