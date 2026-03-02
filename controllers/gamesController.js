@@ -1,5 +1,7 @@
 async function getGamesAll(req, res) {
   console.log("Games All");
+  const games = [];
+  res.render("games", { games: games });
 }
 
 function getGame(req, res) {

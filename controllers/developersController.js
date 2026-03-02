@@ -1,5 +1,8 @@
+const db = require("../db/developerQueries");
 async function getDevelopersAll(req, res) {
   console.log("Developers All");
+  const developers = [];
+  res.render("developers", { developers: developers });
 }
 
 function getDeveloper(req, res) {

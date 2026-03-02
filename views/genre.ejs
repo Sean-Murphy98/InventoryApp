@@ -5,15 +5,26 @@
   </head>
   <body>
     <% genres.forEach((genre, index) => { %>
+      <% let deleteString = "/genres/delete/" + genre.id %>
         <h2 ><%= genre.title %></h2>
-        <span><%= genre.games%></span>
-        
-        <button><a href=<%="/" + genre.id%>>Edit genre</a></button>
-
-        <form action=<%="/" + genre.id + %> method="POST" onsubmit="return confirm('Are you sure you want to delete this?');">
+        <% if (!single) {  %>
+        <button><a href=<%="genres/" + genre.id%>>Edit genre</a></button>
+        <% }  else { 
+          deleteString = "delete/" + genre.id; %>
+          <form action=<%=  genre.id %> method="POST" >
+            <input type="text" name="title" id="title" value="<%= genre.title %>" required />
+            <button type="submit">Submit</button>
+        </form>
+        <% } %>
+        <form action=<%=deleteString%> method="POST" onsubmit="return confirm('Are you sure you want to delete this?');">
             <input type="hidden" name="csrf_token" value="xyz123"> <!-- CSRF Protection -->
             <button type="submit" style="color: red;">Delete Genre</button>
         </form>
-        <button><a href="/new">Add new genre</a></button>
+        
+        <% console.log(deleteString) %>
+        <% }); %>
+        <% if (!single) { %>
+          <button><a href="genres/new">Add new genre</a></button>
+        <% } %>
   </body>
 </html>

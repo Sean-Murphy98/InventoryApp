@@ -1,4 +1,4 @@
-<!-- games.ejs -->
+<!-- developers.ejs -->
 <html>
   <head>
     <title>Developers</title>
@@ -10,10 +10,11 @@
         
         <button><a href=<%="/" + developer.id%>>Edit developer</a></button>
 
-        <form action=<%="/" + developer.id + %> method="POST" onsubmit="return confirm('Are you sure you want to delete this?');">
+        <form action=<%="/" + developer.id %> method="POST" onsubmit="return confirm('Are you sure you want to delete this?');">
             <input type="hidden" name="csrf_token" value="xyz123"> <!-- CSRF Protection -->
             <button type="submit" style="color: red;">Delete Developer</button>
         </form>
+        <% }); %>
         <button><a href="/new">Add new developer</a></button>
   </body>
 </html>
