@@ -12,14 +12,14 @@ const gamesRouter = Router();
 
 gamesRouter.get("/", getGamesAll);
 
+gamesRouter.get("/new", insertGameForm);
+
+gamesRouter.post("/new", insertGame);
+
 gamesRouter.get("/:id", getGame);
 
 gamesRouter.post("/:id", editGame);
 
 gamesRouter.delete("/:id", deleteGame);
-
-gamesRouter.get("/new", insertGameForm);
-
-gamesRouter.post("/new", insertGame);
 
 module.exports = gamesRouter;

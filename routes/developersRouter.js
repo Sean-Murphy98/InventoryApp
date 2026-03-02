@@ -12,14 +12,14 @@ const developerRouter = Router();
 
 developerRouter.get("/", getDevelopersAll);
 
+developerRouter.get("/new", insertDeveloperForm);
+
+developerRouter.post("/new", insertDeveloper);
+
 developerRouter.get("/:id", getDeveloper);
 
 developerRouter.post("/:id", editDeveloper);
 
 developerRouter.delete("/:id", deleteDeveloper);
-
-developerRouter.get("/new", insertDeveloperForm);
-
-developerRouter.post("/new", insertDeveloper);
 
 module.exports = developerRouter;

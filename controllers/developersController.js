@@ -3,15 +3,19 @@ const db = require("../db/developerQueries");
 async function getDevelopersAll(req, res) {
   console.log("Developers All");
   const developers = await db.getAllDevelopers();
-  res.render("developers", { developers: developers });
+  res.render("developers", { developers: developers, single: false });
 }
 
-function getDeveloper(req, res) {
+async function getDeveloper(req, res) {
   console.log("One Developer");
+  const developers = await db.getDeveloper(req.params.id);
+  res.render("developers", { developers: developers, single: true });
 }
 
 async function editDeveloper(req, res) {
-  console.log("Edit developer");
+  await db.editDeveloper(req.params.id, req.body);
+  console.log("req.body", req.body);
+  res.redirect("/developers");
 }
 
 async function deleteDeveloper(req, res) {
