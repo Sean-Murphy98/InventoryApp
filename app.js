@@ -14,6 +14,9 @@ const genresRouter = require("./routes/genresRouter");
 app.use("/games", gamesRouter);
 app.use("/developers", developersRouter);
 app.use("/genres", genresRouter);
+app.get("/", (req, res) => {
+  res.render("homePage");
+});
 app.use((err, req, res, next) => {
   console.error(err);
   res.status(500).send(err);
