@@ -19,7 +19,9 @@ async function editDeveloper(req, res) {
 }
 
 async function deleteDeveloper(req, res) {
+  await db.deleteDeveloper(req.params.id);
   console.log("delete developer");
+  res.redirect("/developers");
 }
 
 function insertDeveloperForm(req, res) {
@@ -28,6 +30,19 @@ function insertDeveloperForm(req, res) {
 
 async function insertDeveloper(req, res) {
   console.log("Insert developer");
+  try {
+    const name = req.body.name;
+    console.log("name", name);
+    TEST = await db.insertDeveloper(name);
+    console.log(TEST);
+    if (TEST.rowCount === 0) {
+      return res.status(400).send("Developer already exists");
+    }
+    res.redirect("/developers");
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Internal Server Error");
+  }
 }
 
 module.exports = {

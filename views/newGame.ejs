@@ -9,9 +9,19 @@
       <label for="title">Title:</label>
       <input type="text" name="title" id="title" required />
       <label for="developer">Developer:</label>
-      <input type="text" name="developer" id="developer" required />
+      <select name="developer" id="developerList">
+        <% developers.forEach((developer) => {
+          console.log(developer.name)%>
+          <option value=<%=developer.id%>><%= developer.name %></option>
+          <% }) %>
+      </select>
       <label for="genre">Genre:</label>
-      <input type="text" name="genre" id="genre" required />
+      <select name="genre" id="genreList">
+        <% genres.forEach((genre) => {
+          console.log(genre.title)%>
+          <option value=<%=genre.title%>><%= genre.title %></option>
+          <% }) %>
+      </select>
       <button type="submit">Submit</button>
     </form>
   </body>

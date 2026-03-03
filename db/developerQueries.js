@@ -15,10 +15,10 @@ async function getDeveloper(id) {
   return rows;
 }
 
-async function insertDeveloper(developer) {
+async function insertDeveloper(developerName) {
   const ans = await pool.query(
-    "INSERT INTO developers (name, games) VALUES ($1, $2) ON CONFLICT (name) DO NOTHING",
-    [developer.name, developer.games],
+    "INSERT INTO developers (name) VALUES ($1) ON CONFLICT (name) DO NOTHING",
+    [developerName],
   );
   return ans;
 }

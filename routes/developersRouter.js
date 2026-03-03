@@ -20,6 +20,6 @@ developerRouter.get("/:id", getDeveloper);
 
 developerRouter.post("/:id", editDeveloper);
 
-developerRouter.delete("/:id", deleteDeveloper);
+developerRouter.post("/delete/:id", deleteDeveloper);
 
 module.exports = developerRouter;

@@ -1,12 +1,29 @@
+const { get } = require("../routes/genresRouter");
 const pool = require("./pool");
 
 async function getAllGames() {
-  const { rows } = await pool.query("SELECT * FROM games");
+  const { rows } = await pool.query(
+    "SELECT gam.id, gam.title, dev.name AS developer, gam.genre FROM games gam LEFT JOIN developers dev ON gam.developer = dev.id ORDER BY gam.title",
+  );
+  console.log(rows);
   return rows;
 }
 
 async function getGame(id) {
-  const { rows } = await pool.query("SELECT * FROM games WHERE id = $1", [id]);
+  const { rows } = await pool.query(
+    "SELECT id, title FROM games WHERE id = $1",
+    [id],
+  );
+  return rows;
+}
+
+async function getAllDevelopers() {
+  const { rows } = await pool.query("SELECT * FROM developers");
+  return rows;
+}
+
+async function getAllGenres() {
+  const { rows } = await pool.query("SELECT * FROM genres");
   return rows;
 }
 
@@ -44,4 +61,6 @@ module.exports = {
   deleteGame,
   editGame,
   getGamesByDeveloper,
+  getAllDevelopers,
+  getAllGenres,
 };

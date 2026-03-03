@@ -20,6 +20,6 @@ gamesRouter.get("/:id", getGame);
 
 gamesRouter.post("/:id", editGame);
 
-gamesRouter.delete("/:id", deleteGame);
+gamesRouter.post("/delete/:id", deleteGame);
 
 module.exports = gamesRouter;

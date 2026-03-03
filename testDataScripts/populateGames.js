@@ -7,14 +7,14 @@ const SQL = `
 CREATE TABLE IF NOT EXISTS games (
   id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
   title VARCHAR ( 255 ) UNIQUE,
-  developer INTEGER REFERENCES developers(id),
-  genre VARCHAR ( 255 )
+  developer INTEGER REFERENCES developers(id) ON DELETE CASCADE,
+  genre VARCHAR ( 255 ) REFERENCES genres(title) ON DELETE SET NULL
 );
 
 INSERT INTO games (title, developer, genre) 
 VALUES
-  ('Half-Life 2', 1, 'FPS'),
-  ('World of Warcraft', 2, 'MMORPG');
+  ('Half-Life 2', 1, 'Action'),
+  ('World of Warcraft', 2, 'Action');
 `;
 
 async function main() {
