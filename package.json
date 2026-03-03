@@ -13,7 +13,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js",
-    "seed": "node testDataScripts/populateGenres.js && testDataScripts/populateDevelopers.js && testDataScripts/populateGames.js"
+    "script1": "node testDataScripts/populateGenres.js",
+    "script2": "node testDataScripts/populateDevelopers.js",
+    "script3": "node testDataScripts/populateGames.js",
+    "seed": "npm run script1 && npm run script2 && npm run script3"
   },
   "repository": {
     "type": "git",

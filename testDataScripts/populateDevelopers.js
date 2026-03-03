@@ -9,8 +9,7 @@ CREATE TABLE IF NOT EXISTS developers (
   name VARCHAR ( 255 ) UNIQUE
 );
 
-TRUNCATE TABLE developers RESTART IDENTITY;
-
+TRUNCATE TABLE games RESTART IDENTITY;
 
 INSERT INTO developers (name) 
 VALUES
@@ -19,7 +18,7 @@ VALUES
 `;
 
 async function main() {
-  console.log("seeding...");
+  console.log("seeding developers...");
   const client = new Client({
     connectionString: `postgresql://${process.env.USERNAME}:${process.env.PASSWORD}@${process.env.HOST}:${process.env.PORT}/${process.env.DB}`,
   });
