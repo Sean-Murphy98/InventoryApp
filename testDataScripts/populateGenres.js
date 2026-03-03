@@ -9,6 +9,8 @@ CREATE TABLE IF NOT EXISTS genres (
   title VARCHAR ( 255 ) UNIQUE
 );
 
+TRUNCATE TABLE genres RESTART IDENTITY;
+
 INSERT INTO genres (title) 
 VALUES
   ('Horror'),

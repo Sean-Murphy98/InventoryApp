@@ -9,6 +9,9 @@ CREATE TABLE IF NOT EXISTS developers (
   name VARCHAR ( 255 ) UNIQUE
 );
 
+TRUNCATE TABLE developers RESTART IDENTITY;
+
+
 INSERT INTO developers (name) 
 VALUES
   ('Valve'),

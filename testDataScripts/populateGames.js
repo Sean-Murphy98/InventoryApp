@@ -11,6 +11,8 @@ CREATE TABLE IF NOT EXISTS games (
   genre VARCHAR ( 255 ) REFERENCES genres(title) ON DELETE SET NULL
 );
 
+TRUNCATE TABLE games RESTART IDENTITY;
+
 INSERT INTO games (title, developer, genre) 
 VALUES
   ('Half-Life 2', 1, 'Action'),
