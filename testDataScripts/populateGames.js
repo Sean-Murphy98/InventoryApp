@@ -20,9 +20,9 @@ VALUES
 `;
 
 async function main() {
-  console.log("seeding...");
+  console.log("seeding games...");
   const client = new Client({
-    connectionString: `postgresql://${process.env.USERNAME}:${process.env.PASSWORD}@${process.env.HOST}:${process.env.PORT}/${process.env.DB}`,
+    connectionString: {process.env.PUBLIC_URL},
   });
   await client.connect();
   await client.query(SQL);

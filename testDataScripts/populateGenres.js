@@ -19,7 +19,7 @@ VALUES
 `;
 
 async function main() {
-  console.log("seeding...");
+  console.log("seeding genres...");
   const client = new Client({
     connectionString: `postgresql://${process.env.USERNAME}:${process.env.PASSWORD}@${process.env.HOST}:${process.env.PORT}/${process.env.DB}`,
   });
