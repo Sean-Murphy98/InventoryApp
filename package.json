@@ -4,5 +4,26 @@
     "ejs": "^4.0.1",
     "express": "^5.2.1",
     "pg": "^8.19.0"
-  }
+  },
+  "name": "inventoryapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sean-Murphy98/InventoryApp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Sean-Murphy98/InventoryApp/issues"
+  },
+  "homepage": "https://github.com/Sean-Murphy98/InventoryApp#readme"
 }
